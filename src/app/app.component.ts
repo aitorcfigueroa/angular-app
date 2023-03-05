@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Product } from './models/product.model';
 
 @Component({
@@ -9,18 +8,8 @@ import { Product } from './models/product.model';
 })
 export class AppComponent {
   title = 'angular-app';
-  constructor(private http: HttpClient) {};
-  products: Product[] = [];
 
   changeTitle() {
     this.title = 'changed';
-  }
-
-  ngOnInit() {
-    this.http
-      .get<Product[]>('https://api.escuelajs.co/api/v1/products')
-      .subscribe((data) => {
-        this.products = data;
-      })
   }
 }
